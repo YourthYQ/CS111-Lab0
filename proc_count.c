@@ -8,6 +8,18 @@ static struct proc_dir_entry *entry;
 
 static int proc_count(struct seq_file *m, void *v){
 	// TODO: it's all yours
+	int count = 0;
+	struct task_struct *task;
+	    
+	// Iterate over each process in the task list.
+	for_each_process(task) {
+        	// Increment the count for each task found.
+        	count++;
+	}
+	    
+	// Write the count of processes to the sequential file.
+	seq_printf(m, "%d\n", count);
+	
 	return 0;
 }
 
