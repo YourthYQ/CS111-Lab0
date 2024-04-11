@@ -23,7 +23,7 @@ sudo insmod proc_count.ko
 Upon successful insertion, to demonstrate the content inside `/proc/count`, run:
 
 ```shell
-cat proc/count
+cat /proc/count
 ```
 
 The output should be a single integer value shows the current number of running processes.
