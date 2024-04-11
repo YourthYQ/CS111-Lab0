@@ -27,7 +27,6 @@ static int proc_count(struct seq_file *m, void *v)
 	/* This function writes formatted output to the sequential file `m`. 
  	 * Here, it writes the final count of processes followed by a newline character. 
  	 */
-	printf("Current number of running processes: ");
 	seq_printf(m, "%d\n", count);
 	
 	return 0;
