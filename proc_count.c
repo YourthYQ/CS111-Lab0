@@ -6,18 +6,27 @@
 
 static struct proc_dir_entry *entry;
 
-static int proc_count(struct seq_file *m, void *v){
-	// TODO: it's all yours
+static int proc_count(struct seq_file *m, void *v)
+{
 	int count = 0;
+
+	/* The `task_struct` is the kernel's internal representation of a process. 
+ 	 * This pointer will be used to iterate through all the processes.
+   	 */
 	struct task_struct *task;
 	    
-	// Iterate over each process in the task list.
+	/* for_each_process()
+ 	 * It's a macro used to iterate over each process in the task list of the Linux kernel. 
+   	 * It's commonly used when you need to perform an action for every running process.
+  	 */
 	for_each_process(task) {
         	// Increment the count for each task found.
         	count++;
 	}
-	    
-	// Write the count of processes to the sequential file.
+
+	/* This function writes formatted output to the sequential file `m`. 
+ 	 * Here, it writes the final count of processes followed by a newline character. 
+ 	 */
 	seq_printf(m, "%d\n", count);
 	
 	return 0;
